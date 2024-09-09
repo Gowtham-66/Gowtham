@@ -13,6 +13,7 @@ body {
     color: #333;
     line-height: 1.6;
     animation: fadeIn 2s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll on animation */
 }
 
 /* Header styling with vibrant colors and gradient */
@@ -23,13 +24,14 @@ header {
     text-align: center;
     animation: slideDown 1.5s ease-in-out, glow 2s infinite alternate;
     position: relative;
+    border-bottom: 5px solid #ff007f;
 }
 
 /* Profile Photo */
 .profile-photo {
     border-radius: 50%;
     width: 160px; /* Slightly increased size */
-    height: 160px; /* Slightly increased size */
+    height: 160px;
     object-fit: cover;
     margin-bottom: 20px;
     border: 4px solid rgba(255, 255, 255, 0.8); /* Slightly transparent border */
@@ -37,30 +39,50 @@ header {
 }
 
 .profile-photo:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow on hover */
-    filter: brightness(1.2); /* Brightness effect on hover */
+    transform: scale(1.2); /* More zoom effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    filter: brightness(1.3); /* Brightness effect on hover */
+    transition: all 0.4s ease;
 }
 
 /* Header Text */
 header h1 {
-    font-size: 3rem; /* Larger size */
-    letter-spacing: 1.5px;
+    font-size: 3.5rem; /* Larger size */
+    letter-spacing: 2px;
+    animation: headerTextAnimation 3s ease-in-out infinite alternate; /* Pulsing animation */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Text shadow */
 }
 
 header p {
     margin: 10px 0;
+    font-size: 1.2rem;
+    animation: textSlideIn 1.5s ease-out;
 }
 
 /* Contact Info Links */
+.contact-info {
+    margin-top: 20px;
+    display: inline-block;
+    animation: textSlideIn 2s ease-out;
+}
+
 .contact-info a {
     color: #fff;
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
     transition: color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
-    padding: 10px;
+    padding: 12px 25px;
     border-radius: 30px;
     position: relative;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff007f, #ffbf00); /* Gradient background */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info a:hover {
+    color: #ffeb3b;
+    transform: scale(1.1); /* Enlarged hover effect */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
 }
 
 .contact-info a::after {
@@ -72,14 +94,7 @@ header p {
     width: 0;
     height: 2px;
     background: #ffeb3b;
-    transition: width 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: #ffeb3b;
-    transform: translateY(-5px); /* Increased hover effect */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow on hover */
+    transition: width 0.4s ease;
 }
 
 .contact-info a:hover::after {
@@ -88,50 +103,51 @@ header p {
 
 /* Glassmorphism Effect */
 .glass-effect {
-    background: rgba(255, 255, 255, 0.2); /* Glass effect with more color */
-    border-radius: 20px; /* Increased radius for more pronounced effect */
-    backdrop-filter: blur(20px); /* Stronger blur effect */
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Thicker border */
-    padding: 20px;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    background: rgba(255, 255, 255, 0.3); /* Glass effect with more opacity */
+    border-radius: 25px; /* Larger radius for a smoother effect */
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Thicker border */
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* Stronger shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 2s ease-in-out;
 }
 
 .glass-effect:hover {
-    transform: scale(1.02); /* Slight zoom on hover */
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
 }
 
 /* Section Styling */
 section {
     padding: 40px 20px;
     background: rgba(255, 255, 255, 0.15); /* Slight transparency */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
-    backdrop-filter: blur(20px); /* Increased blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
     margin: 20px auto;
     width: 90%;
     max-width: 800px;
-    border-radius: 20px; /* Larger radius */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
     opacity: 0;
     animation: fadeInUp 1.5s forwards, shadowPulse 2s infinite alternate;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 section:hover {
-    background: rgba(255, 255, 255, 0.25); /* Darker on hover */
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    background: rgba(255, 255, 255, 0.3); /* Darker on hover */
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4); /* Deeper shadow */
 }
 
 /* Headings */
 h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #333;
-    border-bottom: 3px solid #ff007f; /* Matching header gradient */
+    border-bottom: 4px solid #ff007f;
     padding-bottom: 10px;
     margin-bottom: 20px;
     position: relative;
     animation: headingSlide 1s ease-out;
+    text-transform: uppercase;
 }
 
 h2::after {
@@ -154,41 +170,39 @@ ul {
 }
 
 ul li {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #444;
     position: relative;
     padding-left: 20px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 10px;
 }
 
 ul li::before {
     content: '•';
-    color: #ff007f; /* Bullet color */
+    color: #ff007f;
     position: absolute;
     left: 0;
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: 1.8rem;
 }
 
 ul li:hover {
-    color: #ff007f; /* Change color on hover */
-    transform: translateX(5px); /* Slide effect */
+    color: #ff007f;
+    transform: translateX(10px);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 20px;
-    background: rgba(51, 51, 51, 0.8); /* Slightly transparent footer */
+    padding: 25px;
+    background: rgba(51, 51, 51, 0.8);
     color: white;
-    position: relative;
-    width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.3);
     animation: fadeIn 2s ease;
 }
 
-/* Footer Animation */
 footer p {
     animation: bounce 2s infinite;
 }
@@ -198,35 +212,21 @@ a, a.btn {
     display: inline-block;
     background: linear-gradient(135deg, #ff007f, #ffbf00); /* Vibrant gradient */
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 30px;
     margin-top: 20px;
     transition: background 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
-    position: relative;
     font-weight: bold;
     text-transform: uppercase;
+    position: relative;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 a:hover, a.btn:hover {
-    background: linear-gradient(135deg, #ffbf00, #ff007f); /* Inverted gradient on hover */
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
-
-    section {
-        width: 95%;
-    }
-
-    footer {
-        padding: 15px;
-    }
+    background: linear-gradient(135deg, #ffbf00, #ff007f);
+    transform: translateY(-7px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* Animations */
@@ -274,22 +274,44 @@ a:hover, a.btn:hover {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     to {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        text-shadow: 0 0 25px rgba(255, 255, 255, 1);
     }
 }
 
 @keyframes shadowPulse {
     from {
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
     }
     to {
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes headerTextAnimation {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes textSlideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
 @keyframes headingSlide {
     from {
-        transform: translateY(-10px);
+        transform: translateY(-20px);
         opacity: 0;
     }
     to {
